@@ -16,29 +16,37 @@ namespace Zuul
 		private void CreateRooms()
 		{
 			// create the rooms
-			Room outside = new Room("outside the main entrance of the university");
-			Room theatre = new Room("in a lecture theatre");
-			Room pub = new Room("in the campus pub");
-			Room lab = new Room("in a computing lab");
-			Room office = new Room("in the computing admin office");
+			Room outside = new Room("in front of the ruined castle gate");
+			Room gate = new Room("inside of the gate portcullis");
+			Room smithy = new Room("in the old blacksmith, there is still some equipment lying around");
+			Room alchemist = new Room("in an alchemists lab, there is still some brewing equipment present");
+			Room keep = new Room("in the keeps entrance hall");
 			Room basement = new Room("in a basement, half underwater and filled with mold");
+			Room courtyard = new Room("standing in the middle of the castle courtyard");
 
 			// initialise room exits
-			outside.AddExit("east", theatre);
-			outside.AddExit("south", lab);
-			outside.AddExit("west", pub);
-			outside.AddExit("down", basement);
+			outside.AddExit("east", gate);
 
-			theatre.AddExit("west", outside);
+			gate.AddExit("west", outside);
+			gate.AddExit("east", courtyard);
 
-			pub.AddExit("east", outside);
+			courtyard.AddExit("north", smithy);
+			courtyard.AddExit("south", alchemist);
+			courtyard.AddExit("west", gate);
+			courtyard.AddExit("east", keep);
 
-			lab.AddExit("north", outside);
-			lab.AddExit("east", office);
+			smithy.AddExit("south", courtyard);
 
-			office.AddExit("west", lab);
+			alchemist.AddExit("north", courtyard);
 
-			basement.AddExit("up", outside);
+			keep.AddExit("west", courtyard);
+
+			//lab.AddExit("north", outside);
+			//lab.AddExit("east", office);
+
+			//office.AddExit("west", lab);
+
+			//basement.AddExit("up", outside);
 
 
 			currentRoom = outside;  // start game outside
@@ -72,6 +80,7 @@ namespace Zuul
 			Console.WriteLine();
 			Console.WriteLine("Welcome to Zuul!");
 			Console.WriteLine("Zuul is a new, incredibly boring adventure game.");
+			Console.WriteLine("In where you go exploring an abandoned castle");
 			Console.WriteLine("Type 'help' if you need help.");
 			Console.WriteLine();
 			Console.WriteLine(currentRoom.GetLongDescription());
