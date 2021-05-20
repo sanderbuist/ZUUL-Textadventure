@@ -120,8 +120,8 @@ namespace Zuul
 		 */
 		private void PrintHelp()
 		{
-			Console.WriteLine("You are lost. You are alone.");
-			Console.WriteLine("You wander around at the university.");
+			Console.WriteLine("You are outside a ruined castle");
+			Console.WriteLine("The air is thick and humid");
 			Console.WriteLine();
 			// let the parser print the commands
 			parser.PrintValidCommands();
