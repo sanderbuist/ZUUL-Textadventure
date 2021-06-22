@@ -25,6 +25,8 @@ namespace Zuul
 			Room basement = new Room("in a basement, half underwater and filled with mold");
 			Room courtyard = new Room("standing in the middle of the castle courtyard");
 
+			Item testitem = new Item(2, "testitem");
+
 			// initialise room exits
 			outside.AddExit("east", gate);
 
