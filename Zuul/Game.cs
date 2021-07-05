@@ -25,8 +25,9 @@ namespace Zuul
 			Room basement = new Room("in a basement, half underwater and filled with mold");
 			Room courtyard = new Room("standing in the middle of the castle courtyard");
 
-			Item testitem = new Item(2, "testitem");
-
+			Item dagger = new Item(2,"dagger", "a dagger for stabbing enemies");
+			Item warhammer = new Item(5,"warhammer", "A warhammer for smashing skulls");
+			
 			// initialise room exits
 			outside.AddExit("east", gate);
 
@@ -43,6 +44,12 @@ namespace Zuul
 			alchemist.AddExit("north", courtyard);
 
 			keep.AddExit("west", courtyard);
+
+            courtyard.Chest.Put(dagger);
+
+            string s = "sander is gay";
+			Console.WriteLine(s);
+
 
 			//lab.AddExit("north", outside);
 			//lab.AddExit("east", office);
@@ -118,6 +125,9 @@ namespace Zuul
 					break;
 				case "look":
 					Console.WriteLine(player.CurrentRoom.GetLongDescription());
+					break;
+				case "health":
+					Console.WriteLine("Player health: " + player.Health);
 					break;
 			}
 
