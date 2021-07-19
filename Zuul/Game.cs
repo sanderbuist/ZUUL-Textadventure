@@ -6,12 +6,14 @@ namespace Zuul
 	{
 		private Parser parser;
 		private Player player;
+		private Inventory inventory;
 
 		public Game ()
 		{
 			player = new Player();
 			CreateRooms();
 			parser = new Parser();
+			inventory = new Inventory();
 		}
 
 		private void CreateRooms()
@@ -47,10 +49,6 @@ namespace Zuul
 
             courtyard.Chest.Put(dagger);
 
-            string s = "sander is gay";
-			Console.WriteLine(s);
-
-
 			//lab.AddExit("north", outside);
 			//lab.AddExit("east", office);
 
@@ -80,6 +78,15 @@ namespace Zuul
 			Console.WriteLine("Thank you for playing.");
 			Console.WriteLine("Press [Enter] to continue.");
 			Console.ReadLine();
+		}
+
+		private void Take(Command command)
+		{ 
+			//use code definded in player.cs to take item from chest
+		}
+		private void Drop(Command command) 
+		{ 
+			//same as above but drop to chest
 		}
 
 		/**
@@ -128,6 +135,18 @@ namespace Zuul
 					break;
 				case "health":
 					Console.WriteLine("Player health: " + player.Health);
+					break;
+				case "inventory":
+					//Console.WriteLine("uwe moeke");
+					Player.inventory;
+					break;
+				case "take":
+					Game.Take(Command ,command);
+					Console.WriteLine("dikzak");
+					break;
+				case "drop":
+					Game.Drop(Command, command);
+					Console.WriteLine("dikzak pt2");
 					break;
 			}
 
